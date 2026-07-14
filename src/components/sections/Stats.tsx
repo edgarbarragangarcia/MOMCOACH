@@ -1,34 +1,27 @@
 import React from 'react';
+import './sections.css';
 
 export default function Stats() {
   return (
-    <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--color-turquoise) 0%, var(--color-olive-light) 100%)' }}>
-      <div className="container relative z-10 text-white">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          <div className="space-y-2">
-            <div className="text-5xl md:text-6xl font-medium font-serif">100%</div>
-            <p className="text-xl font-light opacity-90">Resultados Positivos</p>
-          </div>
-          
-          <div className="space-y-2">
-            <div className="text-5xl md:text-6xl font-medium font-serif">+600</div>
-            <p className="text-xl font-light opacity-90">Familias Ayudadas</p>
-          </div>
-          
-          <div className="space-y-2">
-            <div className="text-5xl md:text-6xl font-medium font-serif">+4</div>
-            <p className="text-xl font-light opacity-90">Años de Experiencia</p>
+    <section className="section stats-section" style={{ backgroundColor: 'var(--color-blue-gray)', color: 'white', textAlign: 'center' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <h2 className="font-forum" style={{ fontSize: '3rem', marginBottom: '24px', color: 'var(--color-peach)' }}>
+          Resultados Positivos
+        </h2>
+        <p className="font-inter" style={{ fontSize: '1.2rem', lineHeight: 1.8, marginBottom: '40px' }}>
+          La implementación de programas de entrenamiento del sueño en bebés ha demostrado ser exitosa para muchas familias, proporcionando beneficios tanto para los padres como para los niños.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '40px' }}>
+          <div>
+            <h3 className="font-forum" style={{ fontSize: '4rem', color: 'var(--color-coral)' }}>90%</h3>
+            <p className="font-inter" style={{ fontSize: '1.1rem' }}>
+              De las familias notaron mejoras en los patrones de sueño de sus bebés y lograron tramos de sueño más largos en la noche.
+            </p>
           </div>
         </div>
-
-        {/* Decorator */}
-        <div className="mt-16 text-center">
-          <p className="text-lg font-light italic mb-6">Certificada por:</p>
-          <div className="flex justify-center items-center space-x-8 opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-300">
-             <span className="text-2xl font-bold tracking-widest">IIN</span>
-             <span className="text-xl font-serif">Family Sleep Institute</span>
-          </div>
-        </div>
+        <p className="font-inter" style={{ fontSize: '1.2rem', fontStyle: 'italic', marginTop: '40px' }}>
+          Familias en todo el mundo han confiado en mis programas.
+        </p>
       </div>
     </section>
   );

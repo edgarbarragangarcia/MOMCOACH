@@ -1,28 +1,30 @@
-import React from 'react';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-import Hero from '../components/sections/Hero';
-import Services from '../components/sections/Services';
-import Stats from '../components/sections/Stats';
-import Testimonials from '../components/sections/Testimonials';
-import Products from '../components/sections/Products';
-import About from '../components/sections/About';
-import CTA from '../components/sections/CTA';
+import React from "react";
+import Navbar from "@/components/sections/Navbar";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Services from "@/components/sections/Services";
+import Stats from "@/components/sections/Stats";
+import Testimonials from "@/components/sections/Testimonials";
+import Shop from "@/components/sections/Shop";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen">
+      <Navbar />
+      <main>
         <Hero />
-        <Services />
         <Stats />
         <About />
+        <Services />
         <Testimonials />
-        <Products />
-        <CTA />
+        <Shop />
       </main>
-      <Footer />
+      <footer id="contact" style={{ backgroundColor: 'var(--color-blue-gray)', color: 'white', padding: '64px 5%', textAlign: 'center' }}>
+        <h2 className="font-forum" style={{ fontSize: '2.5rem', marginBottom: '24px' }}>Información de Contacto</h2>
+        <p className="font-inter" style={{ fontSize: '1.125rem', marginBottom: '8px' }}>Política de privacidad</p>
+        <p className="font-inter" style={{ fontSize: '1.125rem', marginBottom: '32px' }}>Términos y Condiciones</p>
+        <p className="font-inter" style={{ opacity: 0.7, fontSize: '0.875rem' }}>© 2025 by The Mom Coach. Designed by THE INDIGO STUDIO BY SO.</p>
+      </footer>
     </>
   );
 }

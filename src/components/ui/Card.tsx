@@ -1,33 +1,49 @@
 import React from 'react';
+import Image from 'next/image';
 import './ui.css';
+import Button from './Button';
 
 interface CardProps {
-  children: React.ReactNode;
+  title: string;
+  description: string;
+  imageUrl?: string;
+  buttonText?: string;
+  buttonHref?: string;
   className?: string;
-  variant?: 'default' | 'product' | 'testimonial' | 'service';
-  hoverEffect?: boolean;
 }
 
-export default function Card({ 
-  children, 
-  className = '', 
-  variant = 'default',
-  hoverEffect = false 
+export default function Card({
+  title,
+  description,
+  imageUrl,
+  buttonText,
+  buttonHref,
+  className = ''
 }: CardProps) {
-  const baseClasses = "card rounded-2xl overflow-hidden bg-white shadow-sm transition-all duration-300";
-  
-  const variantClasses = {
-    default: "p-6",
-    product: "flex flex-col h-full",
-    testimonial: "p-8 bg-[var(--color-cream)] relative",
-    service: "p-8 text-center h-full border border-[var(--color-grey-100)]"
-  };
-
-  const hoverClasses = hoverEffect ? "hover:shadow-lg hover:-translate-y-2" : "";
-
   return (
-    <div className={`${baseClasses} ${variantClasses[variant]} ${hoverClasses} ${className}`}>
-      {children}
+    <div className={`card ${className}`}>
+      {imageUrl && (
+        <div style={{ position: 'relative', width: '100%', height: '240px' }}>
+          <Image 
+            src={imageUrl} 
+            alt={title} 
+            fill
+            className="card-image"
+          />
+        </div>
+      )}
+      <div className="card-content">
+        <h3 className="card-title font-fraunces">{title}</h3>
+        <p className="card-description font-inter">{description}</p>
+        
+        {buttonText && (
+          <div style={{ marginTop: 'auto' }}>
+             <Button variant="primary" href={buttonHref || '#'}>
+               {buttonText}
+             </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
