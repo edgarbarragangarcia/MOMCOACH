@@ -1,0 +1,21 @@
+/* Custom UI component styles that are harder to do with pure Tailwind */
+
+.btn {
+  font-family: var(--font-family-body);
+}
+
+.card {
+  position: relative;
+}
+
+/* For testimonial cards */
+.quote-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  opacity: 0.1;
+  font-size: 4rem;
+  line-height: 1;
+  font-family: var(--font-family-heading);
+  color: var(--color-coral);
+}
