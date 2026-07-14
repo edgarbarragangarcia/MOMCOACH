@@ -5,32 +5,95 @@ import Logo from '../ui/Logo';
 import Button from '../ui/Button';
 import './sections.css';
 
+const navItems = [
+  { href: '/', label: 'Inicio' },
+  { href: '#about', label: 'Sobre mi' },
+  { href: '#sleep', label: 'Sueño' },
+  { href: '#food', label: 'Alimentación' },
+  { href: '#shop', label: 'Shop' },
+  { href: '#blog', label: 'Blog' },
+  { href: '#contact', label: 'Contacto' },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   return (
     <div className="navbar-wrapper">
       <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
         <Logo variant="primary" />
+
+        {/* Desktop links */}
         <ul className="nav-links">
-          <li><Link href="/" className="nav-link font-inter">Inicio</Link></li>
-          <li><Link href="#about" className="nav-link font-inter">Sobre mi</Link></li>
-          <li><Link href="#sleep" className="nav-link font-inter">Sueño</Link></li>
-          <li><Link href="#food" className="nav-link font-inter">Alimentación</Link></li>
-          <li><Link href="#shop" className="nav-link font-inter">Shop</Link></li>
-          <li><Link href="#blog" className="nav-link font-inter">Blog</Link></li>
-          <li><Link href="#contact" className="nav-link font-inter">Contacto</Link></li>
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href} className="nav-link font-inter">{item.label}</Link>
+            </li>
+          ))}
         </ul>
+
         <Button variant="primary" size="sm" className="hidden-mobile nav-btn-modern">Descubrimiento</Button>
+
+        {/* Hamburger button — only visible on mobile */}
+        <button
+          className="nav-hamburger"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Abrir menú"
+          id="nav-hamburger-btn"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </nav>
+
+      {/* Mobile slide-in menu */}
+      <div className={`nav-mobile-menu ${menuOpen ? 'open' : ''}`} role="dialog" aria-modal="true">
+        {/* Top bar inside menu */}
+        <div className="nav-mobile-header">
+          <Logo variant="primary" />
+          <button className="nav-mobile-close" onClick={() => setMenuOpen(false)} aria-label="Cerrar menú">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+
+        {/* Nav links */}
+        <ul className="nav-mobile-links">
+          {navItems.map((item, i) => (
+            <li key={item.href} style={{ animationDelay: `${i * 0.06}s` }} className="nav-mobile-item">
+              <Link
+                href={item.href}
+                className="nav-mobile-link font-forum"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <div className="nav-mobile-cta">
+          <Button variant="primary" className="nav-btn-modern nav-btn-full">Llamada de descubrimiento</Button>
+          <p className="nav-mobile-tagline font-inter">Transformando la maternidad con amor y evidencia</p>
+        </div>
+      </div>
     </div>
   );
 }
