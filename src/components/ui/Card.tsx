@@ -25,7 +25,7 @@ export default function Card({
   return (
     <div className={`card ${className}`} style={{ position: 'relative' }}>
       {icon && (
-        <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1 }}>
+        <div style={{ position: 'absolute', top: -28, right: -28, zIndex: 1 }}>
           {icon}
         </div>
       )}
