@@ -66,13 +66,13 @@ export default function Shop() {
           <p className="shop-description font-inter">
             Quiero compartir mis consejos contigo. La maternidad puede ser maravillosa si entre mamás nos damos una mano.
           </p>
-          <Button variant="primary" href="#shop">Ver Todos</Button>
+          <Button variant="primary" href="/tienda">Ver Todos</Button>
         </div>
 
         <div className="shop-carousel">
           <div className="shop-track" ref={trackRef}>
             {products.map((product, idx) => (
-              <a href="#shop" className="shop-card" key={idx}>
+              <a href="/tienda" className="shop-card" key={idx}>
                 <div className="shop-card-image">
                   <img src={product.img} alt={product.title} loading="lazy" />
                 </div>

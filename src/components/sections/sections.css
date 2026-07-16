@@ -380,6 +380,9 @@
 
 .shop-carousel {
   position: relative;
+  /* Without this, the flex track's intrinsic content width stretches
+     the grid column instead of being clipped and made scrollable. */
+  min-width: 0;
 }
 
 .shop-track {
