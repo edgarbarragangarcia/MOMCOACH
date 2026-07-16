@@ -388,8 +388,6 @@
   display: flex;
   gap: 24px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
   padding-bottom: 8px;
   -ms-overflow-style: none;
   scrollbar-width: none;

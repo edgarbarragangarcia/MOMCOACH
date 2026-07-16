@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Button from '../ui/Button';
 import './sections.css';
 
@@ -18,7 +18,7 @@ const products = [
   {
     title: 'Guía: Todo lo que debes saber sobre los Picky Eaters',
     price: 'USD $32',
-    img: 'https://www.themomcoaching.com/wp-content/uploads/2024/10/Captura-de-pantalla-2024-10-08-a-las-11.25.56 a.-m-600x600.png',
+    img: 'https://www.themomcoaching.com/wp-content/uploads/2024/10/Captura-de-pantalla-2024-10-08-a-las-11.25.56%E2%80%AFa.-m-600x600.png',
   },
   {
     title: 'Recetario Booster Calórico',
@@ -47,14 +47,45 @@ const products = [
   },
 ];
 
+// Duplicated once so the auto-scroll can loop seamlessly.
+const loopProducts = [...products, ...products];
+
 export default function Shop() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let rafId: number;
+    const speed = 0.4; // px per frame
+
+    const step = () => {
+      if (!pausedRef.current) {
+        const halfway = track.scrollWidth / 2;
+        if (track.scrollLeft >= halfway) {
+          track.scrollLeft -= halfway;
+        }
+        track.scrollLeft += speed;
+      }
+      rafId = requestAnimationFrame(step);
+    };
+
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
+  const pause = () => { pausedRef.current = true; };
+  const resume = () => { pausedRef.current = false; };
 
   const scroll = (direction: 'left' | 'right') => {
     const el = trackRef.current;
     if (!el) return;
     const amount = el.clientWidth * 0.8;
     el.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
+    pause();
+    window.setTimeout(resume, 2500);
   };
 
   return (
@@ -70,8 +101,15 @@ export default function Shop() {
         </div>
 
         <div className="shop-carousel">
-          <div className="shop-track" ref={trackRef}>
-            {products.map((product, idx) => (
+          <div
+            className="shop-track"
+            ref={trackRef}
+            onMouseEnter={pause}
+            onMouseLeave={resume}
+            onTouchStart={pause}
+            onTouchEnd={resume}
+          >
+            {loopProducts.map((product, idx) => (
               <a href="/tienda" className="shop-card" key={idx}>
                 <div className="shop-card-image">
                   <img src={product.img} alt={product.title} loading="lazy" />
