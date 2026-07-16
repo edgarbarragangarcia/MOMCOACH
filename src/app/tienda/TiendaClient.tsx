@@ -52,7 +52,7 @@ export default function TiendaClient() {
     : products.filter((p) => p.category === activeCategory);
 
   return (
-    <main className="tienda-main">
+    <div className="tienda-main">
       <div className="tienda-container">
         <Link href="/" className="tienda-back font-inter">← Volver al inicio</Link>
 
@@ -93,6 +93,6 @@ export default function TiendaClient() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

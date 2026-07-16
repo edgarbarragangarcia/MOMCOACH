@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Forum, Fraunces, Montserrat } from "next/font/google";
+import Navbar from "@/components/sections/Navbar";
+import SiteFooter from "@/components/layout/SiteFooter";
 import "./globals.css";
 
 const forum = Forum({
@@ -34,7 +36,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${forum.variable} ${fraunces.variable} ${montserrat.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        <main>{children}</main>
+        <SiteFooter />
+      </body>
     </html>
   );
 }

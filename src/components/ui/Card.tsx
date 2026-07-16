@@ -10,6 +10,7 @@ interface CardProps {
   buttonText?: string;
   buttonHref?: string;
   className?: string;
+  icon?: React.ReactNode;
 }
 
 export default function Card({
@@ -18,10 +19,16 @@ export default function Card({
   imageUrl,
   buttonText,
   buttonHref,
-  className = ''
+  className = '',
+  icon,
 }: CardProps) {
   return (
-    <div className={`card ${className}`}>
+    <div className={`card ${className}`} style={{ position: 'relative' }}>
+      {icon && (
+        <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 1 }}>
+          {icon}
+        </div>
+      )}
       {imageUrl && (
         <div style={{ position: 'relative', width: '100%', height: '240px' }}>
           <Image 

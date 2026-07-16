@@ -8,12 +8,11 @@ export const metadata: Metadata = {
 
 export default function PoliticaDePrivacidad() {
   return (
-    <main style={{ backgroundColor: "var(--color-cream)", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--color-cream)", minHeight: "100vh", padding: "160px 5% 100px" }}>
       <div
         style={{
           maxWidth: 820,
           margin: "0 auto",
-          padding: "160px 24px 100px",
         }}
       >
         <Link
@@ -96,7 +95,7 @@ export default function PoliticaDePrivacidad() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 
