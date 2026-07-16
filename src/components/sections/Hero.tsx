@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../ui/Button';
+import DisintegrateImage from '../ui/DisintegrateImage';
 import './sections.css';
 
 export default function Hero() {
@@ -28,10 +29,10 @@ export default function Hero() {
 
         <div className="hero-images">
           <div className="hero-img-main" style={{ background: 'var(--color-turquoise)' }}>
-            <img src="https://www.themomcoaching.com/wp-content/uploads/2024/01/ima01.jpg" alt="Madre e hijo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <DisintegrateImage src="https://www.themomcoaching.com/wp-content/uploads/2024/01/ima01.jpg" alt="Madre e hijo" radius={20} />
           </div>
           <div className="hero-img-secondary" style={{ background: 'var(--color-peach)' }}>
-            <img src="https://www.themomcoaching.com/wp-content/uploads/2023/12/vertical.webp" alt="Tomados de la mano" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <DisintegrateImage src="https://www.themomcoaching.com/wp-content/uploads/2023/12/vertical.webp" alt="Tomados de la mano" radius={20} />
           </div>
         </div>
       </div>
