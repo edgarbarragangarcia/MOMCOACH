@@ -31,7 +31,7 @@ export default function Hero() {
             <img src="https://www.themomcoaching.com/wp-content/uploads/2024/01/ima01.jpg" alt="Madre e hijo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div className="hero-img-secondary" style={{ background: 'var(--color-peach)' }}>
-            <img src="/placeholder-hero-sec.jpg" alt="Tomados de la mano" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src="https://www.themomcoaching.com/wp-content/uploads/2023/12/vertical.webp" alt="Tomados de la mano" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
       </div>
