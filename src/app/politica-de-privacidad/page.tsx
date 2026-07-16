@@ -12,7 +12,6 @@ export default function PoliticaDePrivacidad() {
       <div
         style={{
           maxWidth: 820,
-          margin: "0 auto",
         }}
       >
         <Link
