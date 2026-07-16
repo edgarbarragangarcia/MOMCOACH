@@ -76,6 +76,26 @@
   box-shadow: 0 4px 12px rgba(76, 87, 124, 0.4);
 }
 
+.nav-cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: 12px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-coral);
+  color: white;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-cart-btn:hover {
+  background-color: var(--color-terracotta);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 /* Base Section */
 .section {
   padding: 100px 5%;
@@ -97,9 +117,19 @@
   margin: 0 auto 64px;
 }
 
-/* Hero Section */
+/* Hero Section — pinned scroll-reveal */
 .hero-section {
+  position: relative;
+  height: 200vh;
+  background-color: var(--color-cream);
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   min-height: 100vh;
+  overflow: hidden;
   background-color: var(--color-cream);
   display: flex;
   align-items: center;
@@ -189,6 +219,7 @@
   right: 0;
   width: 80%;
   height: 80%;
+  padding-top: 24px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -204,20 +235,11 @@
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 10px solid var(--color-cream);
-  animation: float-slow 6s ease-in-out infinite;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: box-shadow 0.4s ease;
 }
 
 .hero-img-secondary:hover {
-  transform: translateY(-10px) scale(1.05);
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  animation-play-state: paused;
-}
-
-@keyframes float-slow {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
 }
 
 /* Services Section */
@@ -525,8 +547,16 @@
   }
 
   .hero-section {
-    padding-top: 100px;
+    height: auto;
+  }
+
+  .hero-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
     min-height: auto;
+    overflow: visible;
+    padding-top: 100px;
     padding-bottom: 60px;
   }
 

@@ -59,7 +59,7 @@ export default function Home() {
                 { label: 'Inicio', href: '/' },
                 { label: 'Sueño', href: '#sleep' },
                 { label: 'Alimentación', href: '#food' },
-                { label: 'Privacidad', href: '#' },
+                { label: 'Privacidad', href: '/politica-de-privacidad' },
               ].map(link => (
                 <li key={link.href}>
                   <a href={link.href} className="footer-link">{link.label}</a>
