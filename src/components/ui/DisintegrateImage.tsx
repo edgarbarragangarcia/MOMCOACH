@@ -8,6 +8,8 @@ interface DisintegrateImageProps {
   cols?: number;
   rows?: number;
   radius?: number;
+  /** How many pixels of scroll it takes to fully disintegrate, starting immediately at scrollY 0. */
+  scrollDistance?: number;
 }
 
 function seededRandom(seed: number) {
@@ -21,6 +23,7 @@ export default function DisintegrateImage({
   cols = 8,
   rows = 8,
   radius = 20,
+  scrollDistance = 500,
 }: DisintegrateImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -32,10 +35,9 @@ export default function DisintegrateImage({
       scheduled = false;
       const container = containerRef.current;
       if (!container) return;
-      const rect = container.getBoundingClientRect();
-      // 0 while the hero is fully visible, growing toward 1 as it scrolls
-      // past the top of the viewport.
-      const progress = Math.min(1, Math.max(0, -rect.top / (rect.height || 1)));
+      // Starts dissolving on the very first pixel of scroll, fully gone by
+      // `scrollDistance` px scrolled.
+      const progress = Math.min(1, Math.max(0, window.scrollY / scrollDistance));
 
       tileRefs.current.forEach((tile, i) => {
         if (!tile) return;
@@ -81,7 +83,7 @@ export default function DisintegrateImage({
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
-  }, [cols, rows]);
+  }, [cols, rows, scrollDistance]);
 
   const tiles = Array.from({ length: cols * rows });
 

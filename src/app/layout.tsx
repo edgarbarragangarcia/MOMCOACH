@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Forum, Fraunces, Arimo } from "next/font/google";
+import { Forum, Fraunces, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const forum = Forum({
@@ -14,11 +14,10 @@ const fraunces = Fraunces({
   style: ["normal", "italic"],
 });
 
-// Helvetica isn't a licensable web font, so we self-host Arimo — Google's
-// metric-compatible substitute for Helvetica/Arial — as the general text
-// typeface from the brand book, instead of relying on the visitor's OS
-// having Helvetica installed.
-const arimo = Arimo({
+// The brand book lists Helvetica for general text, but the live
+// themomcoaching.com site actually ships Montserrat — matching that so
+// the site is consistent with what the business currently has published.
+const montserrat = Montserrat({
   variable: "--font-inter",
   subsets: ["latin"],
 });
@@ -34,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${forum.variable} ${fraunces.variable} ${arimo.variable}`}>
+    <html lang="es" className={`${forum.variable} ${fraunces.variable} ${montserrat.variable}`}>
       <body>{children}</body>
     </html>
   );
