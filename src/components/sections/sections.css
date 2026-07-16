@@ -127,7 +127,7 @@
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(320px, 600px) 1fr;
   gap: 32px;
   align-items: center;
   width: 100%;
