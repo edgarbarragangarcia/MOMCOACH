@@ -348,6 +348,125 @@
   margin-bottom: 8px;
 }
 
+/* Shop Section — carousel */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.shop-eyebrow {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-olive-dark);
+  margin-bottom: 16px;
+}
+
+.shop-heading {
+  font-size: 2.75rem;
+  line-height: 1.1;
+  color: var(--color-blue-gray);
+  margin-bottom: 20px;
+}
+
+.shop-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.shop-carousel {
+  position: relative;
+}
+
+.shop-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.shop-track::-webkit-scrollbar {
+  display: none;
+}
+
+.shop-card {
+  flex: 0 0 240px;
+  scroll-snap-align: start;
+  display: block;
+  color: inherit;
+  background: white;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shop-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  opacity: 1;
+}
+
+.shop-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.shop-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shop-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 16px 16px 4px;
+  line-height: 1.4;
+  min-height: 3.9em;
+}
+
+.shop-card-price {
+  font-size: 0.9rem;
+  color: var(--color-blue-gray);
+  padding: 0 16px 20px;
+}
+
+.shop-carousel-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.shop-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: white;
+  color: var(--color-blue-gray);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.shop-arrow:hover {
+  background-color: var(--color-coral);
+  color: white;
+}
+
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 900px) {
   .section {
@@ -385,6 +504,15 @@
 
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .shop-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .shop-carousel-controls {
+    justify-content: center;
   }
 }
 
