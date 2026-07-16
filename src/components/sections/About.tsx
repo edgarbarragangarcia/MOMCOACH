@@ -18,8 +18,7 @@ export default function About() {
           </p>
         </div>
         <div className="about-image-wrapper animate-fade-in" style={{ animationDelay: '0.2s', background: 'var(--color-cream)' }}>
-           {/* Placeholder for mother-child silhouette */}
-           <img src="/placeholder-about.jpg" alt="Silueta de madre e hijo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+           <img src="https://www.themomcoaching.com/wp-content/uploads/2023/12/historia_JPEG.webp" alt="Silueta de madre e hijo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
       </div>
     </section>
