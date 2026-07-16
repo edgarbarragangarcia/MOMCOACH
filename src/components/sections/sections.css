@@ -117,19 +117,9 @@
   margin: 0 auto 64px;
 }
 
-/* Hero Section — pinned scroll-reveal */
+/* Hero Section */
 .hero-section {
-  position: relative;
-  height: 200vh;
-  background-color: var(--color-cream);
-}
-
-.hero-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
   min-height: 100vh;
-  overflow: hidden;
   background-color: var(--color-cream);
   display: flex;
   align-items: center;
@@ -235,11 +225,20 @@
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 10px solid var(--color-cream);
-  transition: box-shadow 0.4s ease;
+  animation: float-slow 6s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .hero-img-secondary:hover {
+  transform: translateY(-10px) scale(1.05);
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation-play-state: paused;
+}
+
+@keyframes float-slow {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
 /* Services Section */
@@ -547,16 +546,8 @@
   }
 
   .hero-section {
-    height: auto;
-  }
-
-  .hero-sticky {
-    position: relative;
-    top: auto;
-    height: auto;
-    min-height: auto;
-    overflow: visible;
     padding-top: 100px;
+    min-height: auto;
     padding-bottom: 60px;
   }
 
