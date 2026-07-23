@@ -4,20 +4,13 @@ import React, { useEffect, useState } from 'react';
 import './discovery-call-popup.css';
 
 const CALENDLY_URL = 'https://calendly.com/edgarbarragangarcia/mom-coaching';
-const SESSION_KEY = 'discoveryCallPopupShown';
 const SHOW_DELAY_MS = 2500;
 
 export default function DiscoveryCallPopup() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem(SESSION_KEY)) return;
-
-    const timer = setTimeout(() => {
-      sessionStorage.setItem(SESSION_KEY, 'true');
-      setOpen(true);
-    }, SHOW_DELAY_MS);
-
+    const timer = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
     return () => clearTimeout(timer);
   }, []);
 
