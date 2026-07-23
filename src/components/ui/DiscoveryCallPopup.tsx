@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import './discovery-call-popup.css';
 
-const CALENDLY_URL = 'https://calendly.com/edgarbarragangarcia/mom-coaching';
 const SHOW_DELAY_MS = 2500;
 
 export default function DiscoveryCallPopup() {
@@ -19,10 +19,8 @@ export default function DiscoveryCallPopup() {
   return (
     <div className="discovery-popup-backdrop" onClick={() => setOpen(false)}>
       <div className="discovery-popup-panel" onClick={(e) => e.stopPropagation()}>
-        <a
-          href={CALENDLY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/llamada-descubrimiento"
           aria-label="Agenda tu llamada de descubrimiento sin costo"
           onClick={() => setOpen(false)}
         >
@@ -32,7 +30,7 @@ export default function DiscoveryCallPopup() {
             alt="Agenda tu llamada de descubrimiento ¡sin costo!"
             className="discovery-popup-image"
           />
-        </a>
+        </Link>
         <button
           type="button"
           className="discovery-popup-close"
