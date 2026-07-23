@@ -1,0 +1,57 @@
+.discovery-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(15, 15, 20, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: discovery-popup-fade-in 0.3s ease;
+}
+
+.discovery-popup-panel {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  background: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.discovery-popup-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.discovery-popup-close {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  color: var(--color-blue-gray);
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.discovery-popup-close:hover {
+  background: #fff;
+}
+
+@keyframes discovery-popup-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
