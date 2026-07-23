@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Script from "next/script";
+import "./llamada-descubrimiento.css";
 
 export const metadata: Metadata = {
   title: "Agenda tu Llamada de Descubrimiento | The Mom Coach",
@@ -10,32 +10,24 @@ export const metadata: Metadata = {
 
 export default function LlamadaDescubrimiento() {
   return (
-    <div style={{ backgroundColor: "var(--color-cream)", minHeight: "100vh", padding: "160px 5% 100px" }}>
-      <div>
-        <Link
-          href="/"
-          className="font-inter"
-          style={{ color: "var(--color-blue-gray)", fontSize: "0.95rem" }}
-        >
-          ← Volver al inicio
-        </Link>
+    <div className="discovery-page">
+      <div
+        className="discovery-page-photo"
+        style={{
+          backgroundImage:
+            "url(https://www.themomcoaching.com/wp-content/uploads/2024/01/ima01.jpg)",
+        }}
+      />
 
-        <h1
-          className="font-forum"
-          style={{ fontSize: "2.6rem", color: "var(--color-blue-gray)", margin: "24px 0 8px" }}
-        >
-          Agenda tu Llamada de Descubrimiento
-        </h1>
-        <p className="font-inter" style={{ opacity: 0.7, marginBottom: "40px", fontSize: "1.05rem" }}>
-          Sin costo — elige el horario que mejor te funcione.
-        </p>
+      <div className="discovery-page-content">
+        <p className="discovery-page-eyebrow font-inter">Agenda aquí tu</p>
+        <h1 className="discovery-page-title font-fraunces">Llamada de descubrimiento</h1>
 
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
         <div
           className="calendly-inline-widget"
           data-url="https://calendly.com/edgarbarragangarcia/mom-coaching"
-          style={{ minWidth: "320px", height: "700px", borderRadius: "16px", overflow: "hidden" }}
         />
       </div>
     </div>

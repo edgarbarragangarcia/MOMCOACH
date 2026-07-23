@@ -1,0 +1,61 @@
+.discovery-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding-top: 96px;
+  background: var(--color-cream);
+}
+
+.discovery-page-photo {
+  background-size: cover;
+  background-position: center;
+  min-height: 480px;
+}
+
+.discovery-page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 6% 60px 6%;
+}
+
+.discovery-page-eyebrow {
+  color: var(--color-coral);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.discovery-page-title {
+  color: var(--color-turquoise);
+  font-size: 2.6rem;
+  font-style: italic;
+  margin-bottom: 32px;
+  line-height: 1.15;
+}
+
+.calendly-inline-widget {
+  width: 100%;
+  min-width: 280px;
+  height: 700px;
+}
+
+@media (max-width: 900px) {
+  .discovery-page {
+    grid-template-columns: 1fr;
+  }
+
+  .discovery-page-photo {
+    min-height: 320px;
+  }
+
+  .discovery-page-content {
+    padding: 40px 6% 60px;
+  }
+
+  .discovery-page-title {
+    font-size: 2rem;
+  }
+}

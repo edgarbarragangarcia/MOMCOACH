@@ -2,19 +2,23 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import './discovery-call-popup.css';
 
 const SHOW_DELAY_MS = 2500;
 
 export default function DiscoveryCallPopup() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isBookingPage = pathname === '/llamada-descubrimiento';
 
   useEffect(() => {
+    if (isBookingPage) return;
     const timer = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
     return () => clearTimeout(timer);
-  }, []);
+  }, [isBookingPage]);
 
-  if (!open) return null;
+  if (!open || isBookingPage) return null;
 
   return (
     <div className="discovery-popup-backdrop" onClick={() => setOpen(false)}>
