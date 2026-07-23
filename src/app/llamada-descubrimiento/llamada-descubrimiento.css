@@ -1,6 +1,6 @@
 .discovery-page {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.7fr 1.3fr;
   min-height: 100vh;
   padding-top: 96px;
   background: var(--color-cream);

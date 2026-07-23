@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./llamada-descubrimiento.css";
 
 export const metadata: Metadata = {
@@ -23,8 +22,6 @@ export default function LlamadaDescubrimiento() {
         <p className="discovery-page-eyebrow font-inter">Agenda aquí tu</p>
         <h1 className="discovery-page-title font-fraunces">Llamada de descubrimiento</h1>
 
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-        <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
         <div
           className="calendly-inline-widget"
           data-url="https://calendly.com/edgarbarragangarcia/mom-coaching"
