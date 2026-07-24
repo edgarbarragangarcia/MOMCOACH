@@ -288,7 +288,7 @@
 
 .about-badges {
   position: absolute;
-  right: -28px;
+  right: 0;
   bottom: -28px;
   width: 56%;
   max-width: 300px;
