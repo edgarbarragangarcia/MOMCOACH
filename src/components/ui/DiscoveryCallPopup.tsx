@@ -21,16 +21,25 @@ export default function DiscoveryCallPopup() {
     const video = videoRef.current;
     if (!open || !video) return;
 
-    // Autoplay with sound is blocked by most browsers unless the video
-    // starts muted. Start muted so playback is guaranteed, then try to
-    // unmute right away — browsers that allow it will play with sound,
-    // the rest will just stay silent instead of not playing at all.
+    // Browsers only allow autoplay when the video starts muted — trying
+    // to unmute it right after (with no user interaction yet) makes
+    // Chrome pause it outright instead of just declining the unmute. So
+    // start muted to guarantee playback, then unmute on the visitor's
+    // first interaction anywhere on the page, which is a real gesture
+    // browsers accept.
     video.muted = true;
-    video.play()
-      .then(() => {
-        video.muted = false;
-      })
-      .catch(() => {});
+    video.play().catch(() => {});
+
+    const unmuteOnInteraction = () => {
+      video.muted = false;
+      if (video.paused) video.play().catch(() => {});
+    };
+    document.addEventListener('pointerdown', unmuteOnInteraction, { once: true });
+    document.addEventListener('keydown', unmuteOnInteraction, { once: true });
+    return () => {
+      document.removeEventListener('pointerdown', unmuteOnInteraction);
+      document.removeEventListener('keydown', unmuteOnInteraction);
+    };
   }, [open]);
 
   if (!open) return null;
