@@ -12,12 +12,16 @@
 
 .discovery-popup-panel {
   position: relative;
-  max-width: 420px;
+  max-width: 560px;
   width: 100%;
   background: #fff;
   padding: 8px;
   border-radius: 4px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.discovery-popup-video-wrap {
+  position: relative;
 }
 
 .discovery-popup-image {
@@ -28,23 +32,72 @@
   cursor: pointer;
 }
 
+.discovery-popup-sound-toggle {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.discovery-popup-sound-toggle:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.discovery-popup-agenda-btn {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  background: #ded181;
+  color: #ffffff;
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.discovery-popup-agenda-btn:hover {
+  filter: brightness(0.95);
+}
+
 .discovery-popup-close {
   position: absolute;
-  bottom: 16px;
-  right: 16px;
-  background: rgba(255, 255, 255, 0.9);
+  top: -14px;
+  right: -14px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
   border: none;
   font-family: var(--font-inter);
-  font-size: 0.85rem;
+  font-size: 1.3rem;
+  line-height: 1;
   color: var(--color-blue-gray);
-  padding: 6px 14px;
   border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
 .discovery-popup-close:hover {
-  background: #fff;
+  background: #f2f2f2;
 }
 
 @keyframes discovery-popup-fade-in {
