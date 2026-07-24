@@ -4,11 +4,33 @@ import React, { useState } from 'react';
 import './sections.css';
 
 export default function About() {
-  const [zoomedBadge, setZoomedBadge] = useState<string | null>(null);
+  const [hoveredBadge, setHoveredBadge] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleBadgeClick = (badgeId: string) => {
-    setZoomedBadge(zoomedBadge === badgeId ? null : badgeId);
+    if (isMobile) {
+      setHoveredBadge(hoveredBadge === badgeId ? null : badgeId);
+    }
   };
+
+  const handleMouseEnter = (badgeId: string) => {
+    if (!isMobile) {
+      setHoveredBadge(badgeId);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      setHoveredBadge(null);
+    }
+  };
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <section id="about" className="section about-section">
@@ -33,10 +55,12 @@ export default function About() {
                <div
                  className="about-badge-card about-badge-card--acs"
                  onClick={() => handleBadgeClick('acs')}
+                 onMouseEnter={() => handleMouseEnter('acs')}
+                 onMouseLeave={handleMouseLeave}
                  style={{
                    cursor: 'pointer',
-                   transform: zoomedBadge === 'acs' ? 'scale(1.8)' : 'rotate(6deg) translate(10px, -8px)',
-                   zIndex: zoomedBadge === 'acs' ? 10 : 1,
+                   transform: hoveredBadge === 'acs' ? 'scale(1.8)' : 'rotate(6deg) translate(10px, -8px)',
+                   zIndex: hoveredBadge === 'acs' ? 10 : 1,
                    transition: 'transform 0.3s ease, z-index 0.3s ease'
                  }}
                >
@@ -45,10 +69,12 @@ export default function About() {
                <div
                  className="about-badge-card about-badge-card--iin"
                  onClick={() => handleBadgeClick('iin')}
+                 onMouseEnter={() => handleMouseEnter('iin')}
+                 onMouseLeave={handleMouseLeave}
                  style={{
                    cursor: 'pointer',
-                   transform: zoomedBadge === 'iin' ? 'scale(1.8)' : 'rotate(-6deg) translate(-10px, 8px)',
-                   zIndex: zoomedBadge === 'iin' ? 10 : 2,
+                   transform: hoveredBadge === 'iin' ? 'scale(1.8)' : 'rotate(-6deg) translate(-10px, 8px)',
+                   zIndex: hoveredBadge === 'iin' ? 10 : 2,
                    transition: 'transform 0.3s ease, z-index 0.3s ease'
                  }}
                >
