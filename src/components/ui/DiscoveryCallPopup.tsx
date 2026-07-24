@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PopupButton } from 'react-calendly';
@@ -11,7 +11,8 @@ const CALENDLY_URL = 'https://calendly.com/edgarbarragangarcia/mom-coaching';
 
 export default function DiscoveryCallPopup() {
   const [open, setOpen] = useState(false);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const pathname = usePathname();
   const isBookingPage = pathname === '/llamada-descubrimiento';
 
@@ -20,6 +21,18 @@ export default function DiscoveryCallPopup() {
     const timer = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
     return () => clearTimeout(timer);
   }, [isBookingPage]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!open || !video) return;
+
+    video.play().catch(() => {
+      // Browser blocked unmuted autoplay — fall back to muted so the
+      // video still plays, and let the user turn sound on manually.
+      setMuted(true);
+      video.play().catch(() => {});
+    });
+  }, [open]);
 
   if (!open || isBookingPage) return null;
 
@@ -33,9 +46,9 @@ export default function DiscoveryCallPopup() {
             onClick={() => setOpen(false)}
           >
             <video
+              ref={videoRef}
               src="/discovery-call-popup.mp4"
               className="discovery-popup-image"
-              autoPlay
               muted={muted}
               loop
               playsInline
