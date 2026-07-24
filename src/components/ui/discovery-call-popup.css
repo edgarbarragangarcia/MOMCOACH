@@ -55,14 +55,14 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 32px;
+  padding: 8% 8%;
   text-align: left;
 }
 
 .discovery-popup-eyebrow {
   position: relative;
   font-family: var(--font-fraunces), serif;
-  font-size: 1.4rem;
+  font-size: clamp(0.95rem, 4.5vw, 1.4rem);
   color: #fff;
   margin-bottom: 4px;
 }
@@ -71,15 +71,17 @@
   position: relative;
   font-family: var(--font-fraunces), serif;
   font-weight: 800;
-  font-size: 2.4rem;
-  line-height: 1.15;
+  font-size: clamp(1.35rem, 6.5vw, 2.4rem);
+  line-height: 1.2;
   color: #fff;
   margin: 0 0 8px;
-  padding: 8px 12px;
+  padding: 6px 12px;
   background-color: #A9A644;
   border-radius: 60px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 .discovery-popup-highlight {
@@ -88,9 +90,10 @@
   font-family: var(--font-fraunces), serif;
   font-weight: 800;
   font-style: italic;
-  font-size: 2rem;
+  font-size: clamp(1.1rem, 5.5vw, 2rem);
   color: #fff;
   padding: 4px 20px;
+  white-space: nowrap;
 }
 
 .discovery-popup-highlight::before {
