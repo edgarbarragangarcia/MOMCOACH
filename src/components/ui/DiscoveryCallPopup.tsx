@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { PopupModal } from 'react-calendly';
 import './discovery-call-popup.css';
 
-const SHOW_DELAY_MS = 2500;
 const CALENDLY_URL = 'https://calendly.com/edgarbarragangarcia/mom-coaching';
 
 export default function DiscoveryCallPopup() {
@@ -12,33 +11,42 @@ export default function DiscoveryCallPopup() {
   const [calendlyOpen, setCalendlyOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  // Open the popup on the visitor's first scroll instead of a fixed delay.
   useEffect(() => {
-    const timer = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
-    return () => clearTimeout(timer);
+    const showOnScroll = () => setOpen(true);
+    window.addEventListener('scroll', showOnScroll, { once: true, passive: true });
+    return () => window.removeEventListener('scroll', showOnScroll);
   }, []);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!open || !video) return;
 
-    // Browsers only allow autoplay when the video starts muted — trying
-    // to unmute it right after (with no user interaction yet) makes
-    // Chrome pause it outright instead of just declining the unmute. So
-    // start muted to guarantee playback, then unmute on the visitor's
-    // first interaction anywhere on the page, which is a real gesture
-    // browsers accept.
+    // Chrome only ever allows autoplay when the video starts muted, and
+    // scrolling doesn't count as a "user gesture" for unmuting (only
+    // clicks/taps/keys do) — so an unmute attempt right here can still be
+    // declined. If Chrome reacts by silently pausing the video instead of
+    // just declining, this safely reverts to muted + resumes playback so
+    // it's never left stuck paused.
+    const tryUnmute = () => {
+      video.muted = false;
+      requestAnimationFrame(() => {
+        if (video.paused) {
+          video.muted = true;
+          video.play().catch(() => {});
+        }
+      });
+    };
+
     video.muted = true;
     video.play().catch(() => {});
+    tryUnmute();
 
-    const unmuteOnInteraction = () => {
-      video.muted = false;
-      if (video.paused) video.play().catch(() => {});
-    };
-    document.addEventListener('pointerdown', unmuteOnInteraction, { once: true });
-    document.addEventListener('keydown', unmuteOnInteraction, { once: true });
+    document.addEventListener('pointerdown', tryUnmute, { once: true });
+    document.addEventListener('keydown', tryUnmute, { once: true });
     return () => {
-      document.removeEventListener('pointerdown', unmuteOnInteraction);
-      document.removeEventListener('keydown', unmuteOnInteraction);
+      document.removeEventListener('pointerdown', tryUnmute);
+      document.removeEventListener('keydown', tryUnmute);
     };
   }, [open]);
 
