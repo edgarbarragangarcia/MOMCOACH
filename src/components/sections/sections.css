@@ -284,24 +284,45 @@
 .about-badges {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   flex-wrap: wrap;
   margin-top: 8px;
 }
 
+.about-badge-frame {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-badge-frame:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
 .about-badge {
-  height: 96px;
+  height: 90px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
 @media (max-width: 768px) {
   .about-badges {
-    gap: 20px;
+    gap: 14px;
+  }
+
+  .about-badge-frame {
+    padding: 10px;
   }
 
   .about-badge {
-    height: 72px;
+    height: 64px;
   }
 }
 
