@@ -22,13 +22,23 @@ export default function DiscoveryCallPopup() {
   return (
     <div className="discovery-popup-backdrop" onClick={() => setOpen(false)}>
       <div className="discovery-popup-panel" onClick={(e) => e.stopPropagation()}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://www.themomcoaching.com/wp-content/uploads/2024/02/popup-the-mom-coaching.jpg"
-          alt="Agenda tu llamada de descubrimiento ¡sin costo!"
-          className="discovery-popup-image"
-          onClick={() => setCalendlyOpen(true)}
-        />
+        <div className="discovery-popup-media" onClick={() => setCalendlyOpen(true)}>
+          <video
+            className="discovery-popup-video"
+            src="/discovery-popup-bg.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          <div className="discovery-popup-overlay">
+            <span className="discovery-popup-eyebrow">Agenda tu</span>
+            <h2 className="discovery-popup-title">
+              Llamada de descubrimiento
+            </h2>
+            <span className="discovery-popup-highlight">¡sin costo!</span>
+          </div>
+        </div>
 
         {typeof document !== 'undefined' && (
           <PopupModal
