@@ -4,6 +4,7 @@ import Navbar from "@/components/sections/Navbar";
 import SiteFooter from "@/components/layout/SiteFooter";
 import DiscoveryCallPopup from "@/components/ui/DiscoveryCallPopup";
 import CalendlyPreloader from "@/components/ui/CalendlyPreloader";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import "./globals.css";
 
 const forum = Forum({
@@ -48,6 +49,7 @@ export default function RootLayout({
         <SiteFooter />
         <DiscoveryCallPopup />
         <CalendlyPreloader />
+        <WhatsAppButton />
       </body>
     </html>
   );

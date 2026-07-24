@@ -32,7 +32,7 @@ export default function Hero() {
             <DisintegrateImage src="https://www.themomcoaching.com/wp-content/uploads/2024/01/ima01.jpg" alt="Madre e hijo" radius={20} />
           </div>
           <div className="hero-img-secondary" style={{ background: 'var(--color-peach)' }}>
-            <DisintegrateImage src="https://www.themomcoaching.com/wp-content/uploads/2023/12/vertical.webp" alt="Tomados de la mano" radius={20} />
+            <DisintegrateImage src="/hero-secondary.jpg" alt="Mamá con sus dos hijos" radius={20} />
           </div>
         </div>
       </div>

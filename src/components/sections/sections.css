@@ -281,6 +281,30 @@
   aspect-ratio: 4/5;
 }
 
+.about-badges {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.about-badge {
+  height: 96px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .about-badges {
+    gap: 20px;
+  }
+
+  .about-badge {
+    height: 72px;
+  }
+}
+
 /* Events Section */
 .events-section {
   padding: 100px 5%;
