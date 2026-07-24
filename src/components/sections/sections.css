@@ -284,6 +284,7 @@
 .about-image-wrapper > img {
   border-radius: 20px;
   box-shadow: var(--shadow-md);
+  border: 12px solid #71B0B4;
 }
 
 .about-badges {
