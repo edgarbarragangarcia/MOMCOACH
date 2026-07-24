@@ -20,38 +20,12 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-.discovery-popup-video-wrap {
-  position: relative;
-}
-
 .discovery-popup-image {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 2px;
   cursor: pointer;
-}
-
-.discovery-popup-sound-toggle {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.55);
-  border: none;
-  border-radius: 999px;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.discovery-popup-sound-toggle:hover {
-  background: rgba(0, 0, 0, 0.75);
 }
 
 .discovery-popup-agenda-btn {

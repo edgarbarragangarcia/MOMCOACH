@@ -11,7 +11,6 @@ const CALENDLY_URL = 'https://calendly.com/edgarbarragangarcia/mom-coaching';
 
 export default function DiscoveryCallPopup() {
   const [open, setOpen] = useState(false);
-  const [muted, setMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const pathname = usePathname();
   const isBookingPage = pathname === '/llamada-descubrimiento';
@@ -23,15 +22,8 @@ export default function DiscoveryCallPopup() {
   }, [isBookingPage]);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!open || !video) return;
-
-    video.play().catch(() => {
-      // Browser blocked unmuted autoplay — fall back to muted so the
-      // video still plays, and let the user turn sound on manually.
-      setMuted(true);
-      video.play().catch(() => {});
-    });
+    if (!open) return;
+    videoRef.current?.play().catch(() => {});
   }, [open]);
 
   if (!open || isBookingPage) return null;
@@ -39,31 +31,20 @@ export default function DiscoveryCallPopup() {
   return (
     <div className="discovery-popup-backdrop" onClick={() => setOpen(false)}>
       <div className="discovery-popup-panel" onClick={(e) => e.stopPropagation()}>
-        <div className="discovery-popup-video-wrap">
-          <Link
-            href="/llamada-descubrimiento"
-            aria-label="Agenda tu llamada de descubrimiento sin costo"
-            onClick={() => setOpen(false)}
-          >
-            <video
-              ref={videoRef}
-              src="/discovery-call-popup.mp4"
-              className="discovery-popup-image"
-              muted={muted}
-              loop
-              playsInline
-              aria-label="Agenda tu llamada de descubrimiento ¡sin costo!"
-            />
-          </Link>
-          <button
-            type="button"
-            className="discovery-popup-sound-toggle"
-            onClick={() => setMuted((m) => !m)}
-            aria-label={muted ? 'Activar sonido' : 'Silenciar'}
-          >
-            {muted ? '🔇' : '🔊'}
-          </button>
-        </div>
+        <Link
+          href="/llamada-descubrimiento"
+          aria-label="Agenda tu llamada de descubrimiento sin costo"
+          onClick={() => setOpen(false)}
+        >
+          <video
+            ref={videoRef}
+            src="/discovery-call-popup.mp4"
+            className="discovery-popup-image"
+            autoPlay
+            playsInline
+            aria-label="Agenda tu llamada de descubrimiento ¡sin costo!"
+          />
+        </Link>
 
         {typeof document !== 'undefined' && (
           <PopupButton
