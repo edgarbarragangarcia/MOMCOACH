@@ -28,7 +28,7 @@ export default function LlamadaDescubrimiento() {
 
         <CalendlyEmbed
           url="https://calendly.com/edgarbarragangarcia/mom-coaching"
-          className="calendly-inline-widget"
+          className="discovery-page-calendly"
         />
       </div>
     </div>
