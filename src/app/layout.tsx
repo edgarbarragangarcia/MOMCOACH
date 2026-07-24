@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Forum, Fraunces, Montserrat } from "next/font/google";
-import Script from "next/script";
 import Navbar from "@/components/sections/Navbar";
 import SiteFooter from "@/components/layout/SiteFooter";
 import DiscoveryCallPopup from "@/components/ui/DiscoveryCallPopup";
@@ -41,10 +40,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://assets.calendly.com" />
         <link rel="preconnect" href="https://calendly.com" />
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
       </head>
       <body>
-        <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
         <Navbar />
         <main>{children}</main>
         <SiteFooter />
