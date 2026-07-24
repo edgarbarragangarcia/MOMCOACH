@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CalendlyEmbed from "@/components/ui/CalendlyEmbed";
 import "./llamada-descubrimiento.css";
 
 export const metadata: Metadata = {
@@ -22,9 +23,9 @@ export default function LlamadaDescubrimiento() {
         <p className="discovery-page-eyebrow font-inter">Agenda aquí tu</p>
         <h1 className="discovery-page-title font-fraunces">Llamada de descubrimiento</h1>
 
-        <div
+        <CalendlyEmbed
+          url="https://calendly.com/edgarbarragangarcia/mom-coaching"
           className="calendly-inline-widget"
-          data-url="https://calendly.com/edgarbarragangarcia/mom-coaching"
         />
       </div>
     </div>
