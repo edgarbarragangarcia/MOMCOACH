@@ -1,31 +1,21 @@
+/* This page fits fully in the viewport with no scrolling, so the
+   footer below <main> would just add unreachable/unwanted scroll. */
+body:has(.discovery-page) footer#contact {
+  display: none;
+}
+
 .discovery-page {
-  display: grid;
-  grid-template-columns: 0.6fr 1.4fr;
-  min-height: 100vh;
-  padding-top: 96px;
-  background: var(--color-cream);
-}
-
-.discovery-page-photo-wrap {
-  padding: 40px 0 40px 5%;
-}
-
-.discovery-page-photo {
-  display: block;
-  width: 100%;
-  max-width: 380px;
-  height: auto;
-  object-fit: contain;
-  border: 10px solid #fff;
-  border-radius: 4px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-}
-
-.discovery-page-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 60px 6% 60px 6%;
+  height: 100vh;
+  padding-top: 96px;
+  background: var(--color-cream);
+  overflow: hidden;
+}
+
+.discovery-page-header {
+  padding: 20px 6% 12px;
+  text-align: left;
 }
 
 .discovery-page-eyebrow {
@@ -33,42 +23,82 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  margin-bottom: 12px;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
 }
 
 .discovery-page-title {
   color: var(--color-turquoise);
-  font-size: 2.6rem;
+  font-size: 2rem;
   font-style: italic;
-  margin-bottom: 32px;
   line-height: 1.15;
+}
+
+.discovery-page-body {
+  display: grid;
+  grid-template-columns: 0.6fr 1.4fr;
+  flex: 1;
+  min-height: 0;
+  padding: 0 6% 16px;
+  gap: 24px;
+}
+
+.discovery-page-photo-wrap {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 24px;
+}
+
+.discovery-page-photo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border: 10px solid #fff;
+  border-radius: 4px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 .calendly-inline-widget {
   width: 100%;
   min-width: 280px;
-  height: 700px;
+  height: 100%;
 }
 
 @media (max-width: 900px) {
   .discovery-page {
-    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
   }
 
-  .discovery-page-photo-wrap {
-    padding: 24px 0 0 5%;
-  }
-
-  .discovery-page-photo {
-    max-width: 260px;
-  }
-
-  .discovery-page-content {
-    padding: 40px 6% 60px;
+  .discovery-page-header {
+    padding: 24px 6% 8px;
   }
 
   .discovery-page-title {
-    font-size: 2rem;
+    font-size: 1.7rem;
+  }
+
+  .discovery-page-body {
+    grid-template-columns: 1fr;
+    padding: 0 6% 40px;
+  }
+
+  .discovery-page-photo-wrap {
+    padding-bottom: 0;
+  }
+
+  .discovery-page-photo {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    max-height: none;
+  }
+
+  .calendly-inline-widget {
+    height: 640px;
   }
 }

@@ -3,6 +3,7 @@ import { Forum, Fraunces, Montserrat } from "next/font/google";
 import Navbar from "@/components/sections/Navbar";
 import SiteFooter from "@/components/layout/SiteFooter";
 import DiscoveryCallPopup from "@/components/ui/DiscoveryCallPopup";
+import CalendlyPreloader from "@/components/ui/CalendlyPreloader";
 import "./globals.css";
 
 const forum = Forum({
@@ -46,6 +47,7 @@ export default function RootLayout({
         <main>{children}</main>
         <SiteFooter />
         <DiscoveryCallPopup />
+        <CalendlyPreloader />
       </body>
     </html>
   );

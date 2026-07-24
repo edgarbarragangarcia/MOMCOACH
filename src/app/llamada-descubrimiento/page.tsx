@@ -11,18 +11,20 @@ export const metadata: Metadata = {
 export default function LlamadaDescubrimiento() {
   return (
     <div className="discovery-page">
-      <div className="discovery-page-photo-wrap">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://www.themomcoaching.com/wp-content/uploads/2024/01/ima01.jpg"
-          alt="Madre e hijo"
-          className="discovery-page-photo"
-        />
-      </div>
-
-      <div className="discovery-page-content">
+      <div className="discovery-page-header">
         <p className="discovery-page-eyebrow font-inter">Agenda aquí tu</p>
         <h1 className="discovery-page-title font-fraunces">Llamada de descubrimiento</h1>
+      </div>
+
+      <div className="discovery-page-body">
+        <div className="discovery-page-photo-wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://www.themomcoaching.com/wp-content/uploads/2024/01/ima01.jpg"
+            alt="Madre e hijo"
+            className="discovery-page-photo"
+          />
+        </div>
 
         <CalendlyEmbed
           url="https://calendly.com/edgarbarragangarcia/mom-coaching"
