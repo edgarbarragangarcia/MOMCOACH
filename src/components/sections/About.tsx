@@ -18,11 +18,13 @@ export default function About() {
           </p>
 
           <div className="about-badges">
-            <div className="about-badge-frame">
-              <img src="/badge-acs.png" alt="Consultora de Sueño Infantil Certificada — Academia Consultoría de Sueño" className="about-badge" />
-            </div>
-            <div className="about-badge-frame" style={{ background: '#fff' }}>
-              <img src="/badge-iin.png" alt="Graduada certificada por el Institute for Integrative Nutrition" className="about-badge" />
+            <div className="about-badges-stack">
+              <div className="about-badge-card about-badge-card--acs">
+                <img src="/badge-acs.png" alt="Consultora de Sueño Infantil Certificada — Academia Consultoría de Sueño" className="about-badge" />
+              </div>
+              <div className="about-badge-card about-badge-card--iin">
+                <img src="/badge-iin.png" alt="Graduada certificada por el Institute for Integrative Nutrition" className="about-badge" />
+              </div>
             </div>
           </div>
         </div>
