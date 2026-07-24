@@ -28,11 +28,14 @@ export default function DiscoveryCallPopup() {
           aria-label="Agenda tu llamada de descubrimiento sin costo"
           onClick={() => setOpen(false)}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://www.themomcoaching.com/wp-content/uploads/2024/02/popup-the-mom-coaching.jpg"
-            alt="Agenda tu llamada de descubrimiento ¡sin costo!"
+          <video
+            src="/discovery-call-popup.mp4"
             className="discovery-popup-image"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-label="Agenda tu llamada de descubrimiento ¡sin costo!"
           />
         </Link>
         <button

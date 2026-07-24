@@ -1,19 +1,25 @@
-/* This page fits fully in the viewport with no scrolling, so the
-   footer below <main> would just add unreachable/unwanted scroll. */
-body:has(.discovery-page) footer#contact {
-  display: none;
+/* On desktop this page is sized to fit one screen, so the footer
+   below <main> would just add unreachable scroll. On mobile the page
+   already scrolls normally, so the footer (and its contact/legal
+   links) stays — hiding it there would serve no purpose. */
+@media (min-width: 901px) {
+  body:has(.discovery-page) footer#contact {
+    display: none;
+  }
 }
 
 .discovery-page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 96px;
   background: var(--color-cream);
-  overflow: hidden;
 }
 
 .discovery-page-header {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
   padding: 20px 6% 12px;
   text-align: left;
 }
@@ -38,9 +44,11 @@ body:has(.discovery-page) footer#contact {
   display: grid;
   grid-template-columns: 0.6fr 1.4fr;
   align-items: start;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
   flex: 1;
-  min-height: 0;
-  padding: 0 6% 16px;
+  padding: 0 6% 40px;
   gap: 24px;
 }
 
@@ -66,19 +74,9 @@ body:has(.discovery-page) footer#contact {
   min-width: 280px;
   max-width: 700px;
   height: 500px;
-  /* Calendly's own page renders its card with some internal top
-     margin, so pull the iframe up to visually align it with the
-     photo above it. */
-  margin-top: -28px;
 }
 
 @media (max-width: 900px) {
-  .discovery-page {
-    height: auto;
-    min-height: 100vh;
-    overflow: visible;
-  }
-
   .discovery-page-header {
     padding: 24px 6% 8px;
   }
@@ -90,10 +88,6 @@ body:has(.discovery-page) footer#contact {
   .discovery-page-body {
     grid-template-columns: 1fr;
     padding: 0 6% 40px;
-  }
-
-  .discovery-page-photo-wrap {
-    padding-bottom: 0;
   }
 
   .discovery-page-photo {
