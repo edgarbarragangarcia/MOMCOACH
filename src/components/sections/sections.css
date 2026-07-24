@@ -275,16 +275,24 @@
 }
 
 .about-image-wrapper {
+  position: relative;
   border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
+  overflow: visible;
   aspect-ratio: 4/5;
 }
 
+.about-image-wrapper > img {
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
 .about-badges {
-  margin-top: 16px;
-  width: 100%;
-  max-width: 320px;
+  position: absolute;
+  right: -24px;
+  bottom: -24px;
+  width: 42%;
+  max-width: 220px;
+  z-index: 3;
 }
 
 .about-badges-stack {
@@ -342,12 +350,14 @@
 
 @media (max-width: 768px) {
   .about-badges {
-    max-width: 240px;
-    margin-top: 12px;
+    right: -12px;
+    bottom: -12px;
+    width: 46%;
+    max-width: 150px;
   }
 
   .about-badges-stack {
-    border-radius: 36px;
+    border-radius: 28px;
   }
 }
 

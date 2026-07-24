@@ -16,20 +16,20 @@ export default function About() {
           <p className="about-text font-inter">
             Fundé The Mom Coach para compartir las mejores prácticas para enseñar a dormir a los bebés, impulsar a los padres a encontrar la armonía y ayudar a todas las familias a volver a dormir. Estoy aquí para darles una mano a todas esas mamás y papás que buscan dar la mejor versión de ellos mismos. Un buen descanso conlleva a una crianza feliz y saludable.
           </p>
-
-          <div className="about-badges">
-            <div className="about-badges-stack">
-              <div className="about-badge-card about-badge-card--acs">
-                <img src="/badge-acs.png" alt="Consultora de Sueño Infantil Certificada — Academia Consultoría de Sueño" className="about-badge" />
-              </div>
-              <div className="about-badge-card about-badge-card--iin">
-                <img src="/badge-iin.png" alt="Graduada certificada por el Institute for Integrative Nutrition" className="about-badge" />
-              </div>
-            </div>
-          </div>
         </div>
         <div className="about-image-wrapper animate-fade-in" style={{ animationDelay: '0.2s', background: 'var(--color-cream)' }}>
            <img src="https://www.themomcoaching.com/wp-content/uploads/2023/12/historia_JPEG.webp" alt="Silueta de madre e hijo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+
+           <div className="about-badges">
+             <div className="about-badges-stack">
+               <div className="about-badge-card about-badge-card--acs">
+                 <img src="/badge-acs.png" alt="Consultora de Sueño Infantil Certificada — Academia Consultoría de Sueño" className="about-badge" />
+               </div>
+               <div className="about-badge-card about-badge-card--iin">
+                 <img src="/badge-iin.png" alt="Graduada certificada por el Institute for Integrative Nutrition" className="about-badge" />
+               </div>
+             </div>
+           </div>
         </div>
       </div>
     </section>
