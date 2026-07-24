@@ -301,7 +301,7 @@
   aspect-ratio: 1 / 1;
   border-radius: 48px;
   background: #71B0B4;
-  border: 1px solid rgb(243, 244, 246);
+  border: 1px solid #71B0B4;
   box-shadow: var(--shadow-lg);
   overflow: visible;
   cursor: pointer;
