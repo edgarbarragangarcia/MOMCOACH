@@ -75,11 +75,6 @@
   line-height: 1.2;
   color: #fff;
   margin: 0 0 8px;
-  padding: 6px 12px;
-  background-color: #A9A644;
-  border-radius: 60px;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
   word-break: break-word;
   max-width: 100%;
 }
@@ -91,23 +86,8 @@
   font-weight: 800;
   font-style: italic;
   font-size: clamp(1.1rem, 5.5vw, 2rem);
-  color: #fff;
-  padding: 4px 20px;
+  color: var(--color-coral);
   white-space: nowrap;
-}
-
-.discovery-popup-highlight::before {
-  content: '';
-  position: absolute;
-  inset: -30% -20%;
-  z-index: -1;
-  background: var(--color-coral);
-  clip-path: polygon(
-    50% 0%, 61% 22%, 85% 12%, 78% 35%, 100% 42%,
-    80% 55%, 92% 78%, 68% 70%, 62% 95%, 50% 75%,
-    38% 95%, 32% 70%, 8% 78%, 20% 55%, 0% 42%,
-    22% 35%, 15% 12%, 39% 22%
-  );
 }
 
 .discovery-popup-close {
