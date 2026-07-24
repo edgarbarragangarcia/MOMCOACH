@@ -35,7 +35,7 @@ export default function About() {
                  onClick={() => handleBadgeClick('acs')}
                  style={{
                    cursor: 'pointer',
-                   transform: zoomedBadge === 'acs' ? 'scale(1.2)' : 'rotate(6deg) translate(10px, -8px)',
+                   transform: zoomedBadge === 'acs' ? 'scale(1.8)' : 'rotate(6deg) translate(10px, -8px)',
                    zIndex: zoomedBadge === 'acs' ? 10 : 1,
                    transition: 'transform 0.3s ease, z-index 0.3s ease'
                  }}
@@ -47,7 +47,7 @@ export default function About() {
                  onClick={() => handleBadgeClick('iin')}
                  style={{
                    cursor: 'pointer',
-                   transform: zoomedBadge === 'iin' ? 'scale(1.2)' : 'rotate(-6deg) translate(-10px, 8px)',
+                   transform: zoomedBadge === 'iin' ? 'scale(1.8)' : 'rotate(-6deg) translate(-10px, 8px)',
                    zIndex: zoomedBadge === 'iin' ? 10 : 2,
                    transition: 'transform 0.3s ease, z-index 0.3s ease'
                  }}
