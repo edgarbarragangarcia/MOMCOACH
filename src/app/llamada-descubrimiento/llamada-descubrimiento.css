@@ -1,15 +1,24 @@
 .discovery-page {
   display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
+  grid-template-columns: 0.6fr 1.4fr;
   min-height: 100vh;
   padding-top: 96px;
   background: var(--color-cream);
 }
 
+.discovery-page-photo-wrap {
+  padding: 40px 0 40px 5%;
+}
+
 .discovery-page-photo {
-  background-size: cover;
-  background-position: center;
-  min-height: 480px;
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  border: 10px solid #fff;
+  border-radius: 4px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 .discovery-page-content {
@@ -47,8 +56,12 @@
     grid-template-columns: 1fr;
   }
 
+  .discovery-page-photo-wrap {
+    padding: 24px 0 0 5%;
+  }
+
   .discovery-page-photo {
-    min-height: 320px;
+    max-width: 260px;
   }
 
   .discovery-page-content {
