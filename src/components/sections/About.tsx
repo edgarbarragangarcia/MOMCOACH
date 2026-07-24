@@ -1,7 +1,15 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import './sections.css';
 
 export default function About() {
+  const [zoomedBadge, setZoomedBadge] = useState<string | null>(null);
+
+  const handleBadgeClick = (badgeId: string) => {
+    setZoomedBadge(zoomedBadge === badgeId ? null : badgeId);
+  };
+
   return (
     <section id="about" className="section about-section">
       <div className="about-grid">
@@ -22,10 +30,28 @@ export default function About() {
 
            <div className="about-badges">
              <div className="about-badges-stack">
-               <div className="about-badge-card about-badge-card--acs">
+               <div
+                 className="about-badge-card about-badge-card--acs"
+                 onClick={() => handleBadgeClick('acs')}
+                 style={{
+                   cursor: 'pointer',
+                   transform: zoomedBadge === 'acs' ? 'scale(1.2)' : 'rotate(6deg) translate(10px, -8px)',
+                   zIndex: zoomedBadge === 'acs' ? 10 : 1,
+                   transition: 'transform 0.3s ease, z-index 0.3s ease'
+                 }}
+               >
                  <img src="/badge-acs.png" alt="Consultora de Sueño Infantil Certificada — Academia Consultoría de Sueño" className="about-badge" />
                </div>
-               <div className="about-badge-card about-badge-card--iin">
+               <div
+                 className="about-badge-card about-badge-card--iin"
+                 onClick={() => handleBadgeClick('iin')}
+                 style={{
+                   cursor: 'pointer',
+                   transform: zoomedBadge === 'iin' ? 'scale(1.2)' : 'rotate(-6deg) translate(-10px, 8px)',
+                   zIndex: zoomedBadge === 'iin' ? 10 : 2,
+                   transition: 'transform 0.3s ease, z-index 0.3s ease'
+                 }}
+               >
                  <img src="/badge-iin.png" alt="Graduada certificada por el Institute for Integrative Nutrition" className="about-badge" />
                </div>
              </div>
