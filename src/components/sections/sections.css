@@ -211,6 +211,7 @@
   border-radius: 20px;
   overflow: visible;
   box-shadow: var(--shadow-lg);
+  border: 12px solid #71B0B4;
 }
 
 .hero-img-secondary {
@@ -284,7 +285,7 @@
 .about-image-wrapper > img {
   border-radius: 20px;
   box-shadow: var(--shadow-md);
-  border: 12px solid #71B0B4;
+  border: 12px solid #C4C371;
 }
 
 .about-badges {
