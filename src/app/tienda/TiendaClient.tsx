@@ -37,7 +37,7 @@ const products: Product[] = [
 
 const categories: Category[] = ['Todos', 'Sueño infantil', 'Alimentación', 'Gratuitos', 'Tarjeta de regalo'];
 
-const WHATSAPP_NUMBER = '573142736009';
+const WHATSAPP_NUMBER = '573102158656';
 
 function whatsappHref(title: string, price: string) {
   const text = `Hola! Me interesa: ${title} (${price})`;

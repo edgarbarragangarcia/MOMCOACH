@@ -1,7 +1,7 @@
 import React from 'react';
 import './whatsapp-button.css';
 
-const WHATSAPP_NUMBER = '573142736009';
+const WHATSAPP_NUMBER = '573102158656';
 const WHATSAPP_TEXT = 'Hola! Tengo una pregunta sobre The Mom Coaching.';
 const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_TEXT)}`;
 
