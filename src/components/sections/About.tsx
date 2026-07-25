@@ -59,7 +59,7 @@ export default function About() {
                  onMouseLeave={handleMouseLeave}
                  style={{
                    cursor: 'pointer',
-                   transform: hoveredBadge === 'acs' ? 'scale(1.8)' : 'rotate(6deg) translate(10px, -8px)',
+                   transform: hoveredBadge === 'acs' ? 'scale(1.8)' : (isMobile ? 'rotate(6deg) translate(0px, -8px)' : 'rotate(6deg) translate(10px, -8px)'),
                    zIndex: hoveredBadge === 'acs' ? 10 : 1,
                    transition: 'transform 0.3s ease, z-index 0.3s ease'
                  }}
