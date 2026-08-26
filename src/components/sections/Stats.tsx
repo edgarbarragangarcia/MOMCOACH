@@ -20,7 +20,7 @@ export default function Stats() {
           </div>
         </div>
         <p className="font-inter" style={{ fontSize: '1.2rem', fontStyle: 'italic', marginTop: '40px' }}>
-          Familias en todo el mundo han confiado en mis programas.
+          +3.000 familias alrededor del mundo han confiado en mis programas.
         </p>
       </div>
     </section>

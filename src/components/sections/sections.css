@@ -178,8 +178,8 @@
 }
 
 .hero-line-3 em {
-  font-style: italic;
-  color: var(--color-turquoise);
+  font-style: normal;
+  color: inherit;
 }
 
 .hero-tagline {

@@ -6,17 +6,17 @@ import './sections.css';
 export default function Services() {
   const packages = [
     {
-      title: "Asesorías de Sueño",
+      title: "Programa de Sueño",
       description: "Programas de sueño infantil que benefician a toda la familia, logrando descanso de calidad para los bebés, niños y padres. Transiciones suaves y amorosas.",
       buttonText: "Saber más",
-      buttonHref: "#sleep",
+      buttonHref: "/tienda",
       icon: <StarShape size={110} />,
     },
     {
-      title: "Asesorías de Alimentación",
+      title: "Programa de Alimentación",
       description: "Aprende todo lo que debes saber sobre Picky Eaters y cómo establecer hábitos de alimentación saludables guiados por una coach certificada.",
       buttonText: "Saber más",
-      buttonHref: "#food",
+      buttonHref: "/tienda",
       icon: <HalfCirclesShape size={110} />,
     },
     {

@@ -16,7 +16,7 @@ const products = [
     img: 'https://www.themomcoaching.com/wp-content/uploads/2024/01/Tarjeta-de-regalo-TMC-PRODUCT-600x600.jpg',
   },
   {
-    title: 'Guía: Todo lo que debes saber sobre los Picky Eaters',
+    title: 'Guía: Selectividad Alimentaria',
     price: 'USD $32',
     img: 'https://www.themomcoaching.com/wp-content/uploads/2024/10/Captura-de-pantalla-2024-10-08-a-las-11.25.56%E2%80%AFa.-m-600x600.png',
   },
@@ -32,7 +32,7 @@ const products = [
   },
   {
     title: 'Recetario - The Mom Coach',
-    price: 'USD $18',
+    price: 'USD $12',
     img: 'https://www.themomcoaching.com/wp-content/uploads/2024/01/Imagen-principal-recetario--600x600.jpg',
   },
   {
